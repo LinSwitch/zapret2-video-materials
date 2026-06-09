@@ -1,0 +1,29 @@
+start "zapret2" /min "%~dp0winws2.exe" ^
+--wf-tcp-out=80,443  ^
+--lua-init=@"%~dp0lua\zapret-lib.lua" --lua-init=@"%~dp0lua\zapret-antidpi.lua" ^
+--lua-init="fake_default_tls = tls_mod(fake_default_tls,'rnd,rndsni')" ^
+--blob=quic_google:@"%~dp0files\quic_initial_www_google_com.bin" ^
+--blob=google_tls:@"%~dp0files\tls_clienthello_www_google_com.bin" ^
+--wf-raw-part=@"%~dp0windivert.filter\windivert_part.discord_media.txt" ^
+--wf-raw-part=@"%~dp0windivert.filter\windivert_part.stun.txt" ^
+--wf-raw-part=@"%~dp0windivert.filter\windivert_part.wireguard.txt" ^
+--wf-raw-part=@"%~dp0windivert.filter\windivert_part.quic_initial_ietf.txt" ^
+--filter-tcp=80 --filter-l7=http --hostlist-auto="%~dp0files\zapret-auto.txt" --hostlist-exclude="%~dp0files\zapret-exclude.txt" ^
+  --out-range=-d10 ^
+  --payload=http_req ^
+   --lua-desync=fake:blob=fake_default_http:ip_autottl=-2,3-20:ip6_autottl=-2,3-20:tcp_md5 ^
+   --lua-desync=fakedsplit:ip_autottl=-2,3-20:ip6_autottl=-2,3-20:tcp_md5 ^
+  --new ^
+--filter-tcp=443 --filter-l7=tls --hostlist="%~dp0files\list-youtube.txt" ^
+  --out-range=-d10 ^
+  --payload=tls_client_hello ^
+   --lua-desync=multidisorder:pos=1,midsld ^
+  --new ^
+--filter-tcp=443 --filter-l7=tls --hostlist-auto="%~dp0files\zapret-auto.txt" --hostlist-exclude="%~dp0files\zapret-exclude.txt" ^
+  --out-range=-d10 ^
+  --payload=tls_client_hello ^
+   --lua-desync=multisplit:blob=google_tls:tcp_ts=-1000:pos=2:nodrop:repeats=1 --lua-desync=multisplit:pos=2,midsld ^
+  --new ^
+--filter-udp=443 --filter-l7=quic --hostlist="%~dp0files\list-youtube.txt" ^
+  --payload=quic_initial ^
+   --lua-desync=fake:blob=quic_google:repeats=11 
