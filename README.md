@@ -25,6 +25,18 @@
 * `zapret2-from-video.cmd` — скрипт запуска со стратегией из видео для Zapret2.
 * `zapret-first-gen.cmd` — скрипт запуска со стратегией из видео для Zapret.
 
+### 🛠️ Scripts
+* `parse_blockcheck2.py` — кроссплатформенный скрипт на Python для Linux и Windows.
+* `parse_blockcheck2.ps1` — скрипт для Windows (PowerShell).
+* `start_parse.bat` — **Запуск скрипта в один клик для Windows!** Автоматически обходит запреты системы на запуск PowerShell-скриптов. 
+* `clean_summary.txt` — очищенный пример лога для тестов.
+
+Скрипты по умолчанию ищут файл `blockcheck2.log` в той же папке, где находятся. Для python-скрипта можно вручную указать входной и выходной файлы:
+
+```bash
+python parse_blockcheck2.py input.file output.file
+```
+
 ---
 
 ## FAQ
