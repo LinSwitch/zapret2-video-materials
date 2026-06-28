@@ -4,6 +4,8 @@
 
 📺 **[Смотреть видео-инструкцию на YouTube](https://www.youtube.com/watch?v=Vnq-9ji9wes)**
 
+📺 **[Ручной подбор стратегий на основе Blockcheck](https://youtu.be/NMe7nbbOFTk)**
+
 ---
 
 ## Официальные репозитории разработчика
