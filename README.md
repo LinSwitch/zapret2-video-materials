@@ -2,9 +2,11 @@
 
 Набор стратегий и конфигураций, использованных в видео по настройке Zapret2 для Linux и Windows 10.
 
-📺 **[Смотреть видео-инструкцию на YouTube](https://www.youtube.com/watch?v=Vnq-9ji9wes)**
+📺 **[Смотреть видео-инструкцию на YouTube (Linux & Windows)](https://www.youtube.com/watch?v=Vnq-9ji9wes)**
 
 📺 **[Ручной подбор стратегий на основе Blockcheck](https://youtu.be/NMe7nbbOFTk)**
+
+📺 **[Установка Zapret на роутер OpenWrt](https://youtu.be/yLm1DiBxrLo)**
 
 ---
 
@@ -21,6 +23,14 @@
 
 * `config-from-video` — конфигурация, показанная в видео.
 * `config-current` — моя текущая рабочая конфигурация.
+
+### OpenWRT
+ 
+* `config` — готовый конфигурационный файл Zapret2.
+* `zapret-youtube.txt` — список доменов, необходимых для работы YouTube.
+* `zapret-hosts.txt.gz`  — список доменов, скачанный с помощью скрипта `get_refilter_domains.sh`.
+* [**`README.md`**](./openwrt/README.md) — краткий список команд для OpenWrt из видео.
+  
 
 ### Windows
 
@@ -79,14 +89,6 @@ python parse_blockcheck2.py input.file output.file
 
 </details>
 
-<details>
-<summary><b>Будет ли видео по OpenWRT?</b></summary>
-
-Пока не планируется.
-
-У меня нет роутера с OpenWRT, поэтому я не могу протестировать конфигурации и показать рабочий вариант на практике.
-
-</details>
 
 <details>
 <summary><b>Где искать свежие стратегии?</b></summary>
