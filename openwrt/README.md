@@ -21,7 +21,7 @@
 3. **Быстрое скачивание и распаковка Запрета прямо на роутере (в папку `/tmp`):**
    ```bash
    cd /tmp
-   wget -O zapret.tar.gz https://github.com/bol-van/zapret2/releases/download/v1.0.4/zapret2-v1.0.4-openwrt-embedded.tar.gz
+   wget -O zapret.tar.gz https://github.com/bol-van/zapret2/releases/download/v1.0.6/zapret2-v1.0.6-openwrt-embedded.tar.gz
    tar -zxf zapret.tar.gz
    ```
    *(Ссылку на архив замените на актуальную версию)*
@@ -51,6 +51,10 @@
 8. **Редактирование конфигурационного файла (через редактор Vi):**
    ```bash
    vi /opt/zapret2/config
+   ```
+9. **Перезапустить сервис Zapret2:**
+   ```bash
+   /etc/init.d/zapret2 restart
    ```
 
 ### 📝 Несколько полезных клавиш для редактора vi:
